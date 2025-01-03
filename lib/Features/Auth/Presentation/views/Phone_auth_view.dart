@@ -129,16 +129,16 @@ class _PhoneInputSection extends StatelessWidget {
             filled: true,
             fillColor: Colors.white.withOpacity(0.1),
             focusedBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(8),
+              borderRadius: BorderRadius.circular(10),
               borderSide: const BorderSide(color: Colors.white),
             ),
             border: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(8),
+              borderRadius: BorderRadius.circular(10),
               borderSide: BorderSide.none,
             ),
             contentPadding: const EdgeInsets.symmetric(
               horizontal: 16,
-              vertical: 12,
+              vertical: 18,
             ),
           ),
         ),

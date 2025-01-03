@@ -2,10 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:game_dz_app/Features/Auth/Presentation/views/widgets/Countdown.dart';
 import 'package:game_dz_app/Features/Auth/Presentation/views/widgets/Otp_field.dart';
 
-import 'package:otp_text_field/otp_field.dart';
-import 'package:otp_text_field/otp_field_style.dart';
-import 'package:otp_text_field/style.dart';
-
 class OtpVerificationScreen extends StatelessWidget {
   const OtpVerificationScreen({super.key});
   static const routename = 'otp_view';

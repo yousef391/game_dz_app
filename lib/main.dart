@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:game_dz_app/Features/Auth/Presentation/views/Otp_view.dart';
+
 import 'package:game_dz_app/Features/Auth/Presentation/views/Phone_auth_view.dart';
 import 'package:game_dz_app/core/helper_function/Route.dart';
 import 'package:google_fonts/google_fonts.dart';
