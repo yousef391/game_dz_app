@@ -80,7 +80,7 @@ flutter:
         - asset: assets/fonts/inter1.ttf
           weight: 400
         - asset: assets/fonts/inter2.ttf
-          weight: 700
+          weight: 900
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/to/font-from-package

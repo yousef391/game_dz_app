@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:game_dz_app/Features/Home/Presentation/views/screen.dart';
 import 'package:game_dz_app/Features/Splash/Presentation/views/splash_screen.dart';
 import 'package:game_dz_app/core/helper_function/Route.dart';
 
@@ -19,7 +20,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      initialRoute: SplashScreen.routename, // Set initial route
+      initialRoute: HomeScreen.routename, // Set initial route
       onGenerateRoute: onGenerateRoute, // Use dynamic routing
     );
   }

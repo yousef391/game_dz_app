@@ -176,7 +176,7 @@ class Create_page extends StatelessWidget {
               title,
               textAlign: TextAlign.center,
               style: TextStyle(
-                fontWeight: FontWeight.w800, // Extra bold
+                fontWeight: FontWeight.w900, // Extra bold
                 fontSize: 28,
                 color: Colors.white,
                 height: 1.2, // Line height

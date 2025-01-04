@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:game_dz_app/Features/Home/Presentation/views/screen.dart';
 import 'package:game_dz_app/Features/On_boarding/Presentation/views/on_boarding.dart';
 import 'package:game_dz_app/Features/Splash/Presentation/views/splash_screen.dart';
 // import 'package:game_dz_app/Features/Auth/Presentation/views/Otp_view.dart';
@@ -12,6 +13,9 @@ Route<dynamic> onGenerateRoute(RouteSettings settings) {
       );
     case SplashScreen.routename:
       return MaterialPageRoute(builder: (context) =>  SplashScreen());
+
+    case HomeScreen.routename:
+      return MaterialPageRoute(builder: (context) =>  HomeScreen());
     // case PhoneVerificationScreen.routename:
     //   return MaterialPageRoute(
     //       builder: (context) => const PhoneVerificationScreen());
