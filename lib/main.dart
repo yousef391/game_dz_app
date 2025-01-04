@@ -22,11 +22,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
-        textTheme: GoogleFonts.interTextTheme(
-          ThemeData.light().textTheme, // Apply Inter font to all text themes
-        ).apply(
-            bodyColor: Colors.white,
-            displayColor: Colors.white), // Set default text color
+        textTheme: GoogleFonts.poppinsTextTheme(Theme.of(context).textTheme),
       ),
     );
   }

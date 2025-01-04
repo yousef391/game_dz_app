@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:game_dz_app/Features/Auth/Presentation/views/widgets/custom_button.dart';
 
 class AvatarSelectionDialog extends StatefulWidget {
   const AvatarSelectionDialog({super.key});
@@ -63,10 +62,34 @@ class _AvatarSelectionDialogState extends State<AvatarSelectionDialog> {
                 },
               ),
             ),
-            const Padding(
-              padding: EdgeInsets.all(16),
+            Padding(
+              padding: const EdgeInsets.all(16),
               child: SizedBox(
-                  width: double.infinity, child: GetCodeButton(routename: '')),
+                width: double.infinity,
+                child: ElevatedButton(
+                  onPressed: selectedAvatarIndex != null
+                      ? () {
+                          Navigator.of(context).pop(selectedAvatarIndex);
+                        }
+                      : null,
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: const Color(0xFF6E5DE7),
+                    padding: const EdgeInsets.symmetric(vertical: 16),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(8),
+                    ),
+                    elevation: 0,
+                  ),
+                  child: const Text(
+                    'Confirm',
+                    style: TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.w600,
+                      color: Colors.white,
+                    ),
+                  ),
+                ),
+              ),
             ),
           ],
         ),

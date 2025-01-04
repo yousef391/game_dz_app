@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:game_dz_app/Features/Auth/Presentation/views/Otp_view.dart';
 
 class GetCodeButton extends StatelessWidget {
   const GetCodeButton({super.key, required this.routename});

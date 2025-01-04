@@ -147,6 +147,7 @@ class _AvatarSectionState extends State<_AvatarSection> {
     if (result != null) {
       setState(() {
         selectedAvatarIndex = result;
+        selectedImage = null;
       });
     }
   }
@@ -170,8 +171,8 @@ class _AvatarSectionState extends State<_AvatarSection> {
       child: Column(
         children: [
           Container(
-            width: screenSize.width * 0.3,
-            height: screenSize.width * 0.3,
+            width: screenSize.width * 0.4,
+            height: screenSize.width * 0.4,
             decoration: BoxDecoration(
               shape: BoxShape.circle,
               color: const Color(0xFF6E5DE7),
@@ -181,18 +182,23 @@ class _AvatarSectionState extends State<_AvatarSection> {
               ),
             ),
             child: ClipOval(
-              child: selectedAvatarIndex != null
-                  ? Image.asset(
-                      'assets/images/avatar.png',
+              child: selectedImage != null
+                  ? Image.file(
+                      selectedImage!,
                       fit: BoxFit.cover,
                     )
-                  : Image.asset(
-                      'assets/images/avatar.png',
-                      fit: BoxFit.cover,
-                    ),
+                  : selectedAvatarIndex != null
+                      ? Image.asset(
+                          'assets/images/avatar.png',
+                          fit: BoxFit.cover,
+                        )
+                      : Image.asset(
+                          'assets/images/avatar.png',
+                          fit: BoxFit.cover,
+                        ),
             ),
           ),
-          const SizedBox(height: 16),
+          const SizedBox(height: 30),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
@@ -206,7 +212,7 @@ class _AvatarSectionState extends State<_AvatarSection> {
                 backgroundColor: const Color(0xFF4ECDC4),
                 icon: Icons.image_outlined,
                 onTap: () {
-                  // Handle image selection from gallery
+                  _pickImageFromGallery();
                 },
               ),
             ],
