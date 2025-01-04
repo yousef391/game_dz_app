@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:game_dz_app/Features/Auth/Presentation/views/Otp_view.dart';
 
+import 'widgets/custom_button.dart';
+
 class PhoneVerificationScreen extends StatelessWidget {
   const PhoneVerificationScreen({super.key});
   static const routename = 'phone_auth';
@@ -49,7 +51,9 @@ class PhoneVerificationScreen extends StatelessWidget {
                           _PhoneInputSection(),
                         ],
                       ),
-                      _GetCodeButton(),
+                      const GetCodeButton(
+                        routename: OtpVerificationScreen.routename,
+                      ),
                     ],
                   ),
                 ),
@@ -68,14 +72,14 @@ class _HeaderSection extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const Text(
+        Text(
           'Enter your\nphone number',
-          style: TextStyle(
-            fontSize: 32,
-            fontWeight: FontWeight.bold,
-            color: Colors.white,
-            height: 1.2,
-          ),
+          style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                fontSize: 32,
+                fontWeight: FontWeight.bold,
+                color: Colors.white,
+                height: 1.2,
+              ),
         ),
         const SizedBox(height: 8),
         Text(
@@ -115,64 +119,74 @@ class _PhoneInputSection extends StatelessWidget {
       children: [
         const Text(
           'Enter your phone number',
-          style: TextStyle(fontSize: 13, color: Colors.white),
+          style: TextStyle(
+              fontSize: 13, color: Colors.white, fontWeight: FontWeight.w900),
         ),
         const SizedBox(
           height: 10,
         ),
-        TextFormField(
-          style: const TextStyle(color: Colors.white, fontSize: 16),
-          keyboardType: TextInputType.phone,
-          decoration: InputDecoration(
-            hintText: '067882443287',
-            hintStyle: TextStyle(color: Colors.white.withOpacity(0.3)),
-            filled: true,
-            fillColor: Colors.white.withOpacity(0.1),
-            focusedBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(10),
-              borderSide: const BorderSide(color: Colors.white),
-            ),
-            border: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(10),
-              borderSide: BorderSide.none,
-            ),
-            contentPadding: const EdgeInsets.symmetric(
-              horizontal: 16,
-              vertical: 18,
-            ),
+        IntrinsicHeight(
+          child: Row(
+            crossAxisAlignment:
+                CrossAxisAlignment.stretch, // Ensures matching heights
+            children: [
+              Container(
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(8),
+                  color: Colors.white.withOpacity(0.1),
+                ),
+                child: Row(
+                  children: [
+                    const Text(
+                      '+213',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 16,
+                      ),
+                    ),
+                    const SizedBox(width: 8),
+                    Image.asset(
+                      'assets/images/dz.png',
+                      height:
+                          24, // Adjust the height of the image to fit nicely
+                    ),
+                  ],
+                ),
+              ),
+              const SizedBox(
+                width: 5,
+              ),
+              Expanded(
+                child: TextFormField(
+                  style: const TextStyle(color: Colors.white, fontSize: 16),
+                  keyboardType: TextInputType.phone,
+                  decoration: InputDecoration(
+                    hintText: '067882443287',
+                    hintStyle: TextStyle(color: Colors.white.withOpacity(0.3)),
+                    filled: true,
+                    fillColor: Colors.white.withOpacity(0.1),
+                    focusedBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(10),
+                      borderSide: const BorderSide(color: Colors.white),
+                    ),
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(10),
+                      borderSide: BorderSide.none,
+                    ),
+                    contentPadding: const EdgeInsets.symmetric(
+                      horizontal: 16,
+                      vertical:
+                          12, // Match the vertical padding of the container
+                    ),
+                  ),
+                ),
+              ),
+            ],
           ),
         ),
       ],
-    );
-  }
-}
-
-class _GetCodeButton extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return SizedBox(
-      width: double.infinity,
-      child: ElevatedButton(
-        onPressed: () {
-          Navigator.pushNamed(context, OtpVerificationScreen.routename);
-        },
-        style: ElevatedButton.styleFrom(
-          backgroundColor: const Color(0xFF6E5DE7),
-          padding: const EdgeInsets.symmetric(vertical: 16),
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(8),
-          ),
-          elevation: 0,
-        ),
-        child: const Text(
-          'Get code',
-          style: TextStyle(
-            fontSize: 16,
-            fontWeight: FontWeight.w600,
-            color: Colors.white,
-          ),
-        ),
-      ),
     );
   }
 }

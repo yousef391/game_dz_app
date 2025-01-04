@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:game_dz_app/Features/Auth/Presentation/views/widgets/Countdown.dart';
 import 'package:game_dz_app/Features/Auth/Presentation/views/widgets/Otp_field.dart';
+import 'package:game_dz_app/Features/Auth/Presentation/views/widgets/custom_button.dart';
+
+import 'user_info_screen.dart';
 
 class OtpVerificationScreen extends StatelessWidget {
   const OtpVerificationScreen({super.key});
@@ -35,17 +38,26 @@ class OtpVerificationScreen extends StatelessWidget {
                   ),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      SizedBox(height: screenSize.height * 0.05),
-                      _HeaderSection(),
-                      SizedBox(height: screenSize.height * 0.05),
-                      _Timer(),
-                      SizedBox(height: screenSize.height * 0.05),
-                      _PhoneIllustration(screenSize: screenSize),
-                      SizedBox(height: screenSize.height * 0.05),
-                      _OtpInputSection(),
-                      SizedBox(height: screenSize.height * 0.05),
-                      _ResendSection(),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          SizedBox(height: screenSize.height * 0.05),
+                          _HeaderSection(),
+                          SizedBox(height: screenSize.height * 0.05),
+                          _Timer(),
+                          SizedBox(height: screenSize.height * 0.05),
+                          _PhoneIllustration(screenSize: screenSize),
+                          SizedBox(height: screenSize.height * 0.05),
+                          _OtpInputSection(),
+                          SizedBox(height: screenSize.height * 0.05),
+                          _ResendSection(),
+                        ],
+                      ),
+                      const GetCodeButton(
+                        routename: UserInfoScreen.routename,
+                      )
                     ],
                   ),
                 ),
@@ -147,6 +159,9 @@ class _ResendSection extends StatelessWidget {
           child: Text(
             'RESEND',
             style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                  decoration: TextDecoration.underline,
+                  decorationColor: Colors.white,
+                  decorationThickness: 2,
                   color: Colors.white,
                   fontWeight: FontWeight.bold,
                 ),
